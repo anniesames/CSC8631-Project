@@ -17,6 +17,7 @@ ggplot(data= bind_rows(data_list_100)) +
   labs(x= "Video Duration (seconds)", y= "Percentage of people who viewed 100% of the video") +
   scale_colour_discrete(name = "Run Number")
 
+
 #GRAPH 2: scatterplot of video duration and views, split by view %
 ggplot(data= bind_rows(view_percentages_total_duration)) + 
   geom_point(data= view_percentages_100_duration, aes(x=video_duration, y= viewed_onehundred_percent, col="g. 100% of the video watched"), alpha= 1) +
