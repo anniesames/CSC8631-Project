@@ -32,9 +32,8 @@ durations= select(seven_info, video_duration, viewed_five_percent, viewed_ten_pe
                   viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
 
 
-durations= durations%>%pivot_longer(!durations, names_to= "video_percentage_viewed", values_to= "% People watching")
-durations= durations%>%as.numeric(video_duration)
-
+#durations= durations%>%pivot_longer(!durations, names_to= "video_percentage_viewed", values_to= "% People watching")
+#durations= durations%>%as.numeric(video_duration)
 
 #select only relevant video number and view% columns (run 7)
 view_percentages_100_step_position= select(cyber.security.7_video.stats, step_position, viewed_onehundred_percent)
@@ -44,14 +43,12 @@ view_percentages_50_step_position= select(cyber.security.7_video.stats, step_pos
 view_percentages_25_step_position= select(cyber.security.7_video.stats, step_position, viewed_twentyfive_percent)
 view_percentages_10_step_position= select(cyber.security.7_video.stats, step_position, viewed_ten_percent)
 view_percentages_5_step_position= select(cyber.security.7_video.stats, step_position, viewed_five_percent)
-#make list of video numbers
+#make list of video numbers and view %
 view_percentages_step_position= list(view_percentages_100_step_position, view_percentages_95_step_position, view_percentages_75_step_position, view_percentages_50_step_position, view_percentages_25_step_position, view_percentages_10_step_position, view_percentages_5_step_position)
 
 video_numbers= select(seven_info, step_position, viewed_five_percent, viewed_ten_percent,
                       viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
 video_numbers= video_numbers%>%as.data.frame(pivot_longer(!step_position, names_to= "view", values_to= "% People watched"))
-video_numbers
-
 
 #percentage change in people watching 100% from start to end of week 
 (diff_week1= ((view_percentages_100_step_position[5,2]- view_percentages_100_step_position[1,2] )/view_percentages_100_step_position[1,2])*100)
