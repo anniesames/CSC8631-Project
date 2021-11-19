@@ -31,8 +31,10 @@ view_percentages_total_duration= list(view_percentages_100_duration, view_percen
 durations= select(seven_info, video_duration, viewed_five_percent, viewed_ten_percent,
                   viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
 
-durations= durations%>%as.numeric(video_duration)
+
 durations= durations%>%pivot_longer(!durations, names_to= "video_percentage_viewed", values_to= "% People watching")
+durations= durations%>%as.numeric(video_duration)
+
 
 #select only relevant video number and view% columns (run 7)
 view_percentages_100_step_position= select(cyber.security.7_video.stats, step_position, viewed_onehundred_percent)
