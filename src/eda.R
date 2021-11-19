@@ -29,6 +29,9 @@ ggplot(data= bind_rows(view_percentages_total_duration)) +
   geom_point(data= view_percentages_5_duration, aes(x=video_duration, y= viewed_five_percent, col="a. 5% of the video watched"), alpha= 1) + 
   labs(x= "Video Duration (seconds)", y= "View percentage", title= "Scatterplot of video duration and views, split by view %") + theme(legend.title = element_blank())
 
+
+graphs 
+
 #GRAPH 3: scatterplot of video number and views, split by view %
 ggplot(data= bind_rows(view_percentages_step_position)) + 
   geom_point(data= view_percentages_100_step_position, aes(x=as.numeric(as.factor(step_position)), y= viewed_onehundred_percent, col="g. 100% of the video watched"), alpha= 1) +
