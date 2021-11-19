@@ -17,7 +17,7 @@ data_list_100= list(seven_videos_100, five_videos_100, four_videos_100, three_vi
 seven_info= select(cyber.security.7_video.stats, step_position, video_duration, viewed_five_percent, viewed_ten_percent,
                    viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
 
-#select only relevant video duration and view% columns (run 7)
+#select only relevant video duration and view% columns (run 7 only)
 view_percentages_100_duration= select(cyber.security.7_video.stats, video_duration, viewed_onehundred_percent)
 view_percentages_95_duration= select(cyber.security.7_video.stats, video_duration, viewed_ninetyfive_percent)
 view_percentages_75_duration= select(cyber.security.7_video.stats, video_duration, viewed_seventyfive_percent)
