@@ -45,7 +45,8 @@ ggplot(data= duration_differences, aes(x=duration_differences[,1], y= viewed_one
   labs(x= "Duration", y="Percentage decrease of people watching full video", title= "Scatterplot of duration and percentage change in people watching the full video")
 
 #GRAPH 5: line graph for each video's durations at each % and amount of people watching
-ggplot(data= video_stats, aes(x=X1, y= X2)) + geom_line(aes(colour= Video)) 
+g= ggplot(data= video_stats, aes(x=X1, y= X2)) + geom_line(aes(colour= Video)) 
+g
 
 #identify range of percentages
 range(video_stats$X2)
