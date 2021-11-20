@@ -82,6 +82,7 @@ average_5_w3= mean(week3_videos$viewed_five_percent)
 duration_info= select(seven_info, video_duration, viewed_five_percent, viewed_ten_percent,
                       viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
 
+hello
 five_percent_durations= 0.05*duration_info[,1]
 ten_percent_durations= 0.1*duration_info[,1]
 twenty_five_percent_durations= 0.25*duration_info[,1]
