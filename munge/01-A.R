@@ -3,13 +3,15 @@
 #select video durations and view % for runs 3, 4, 5 and 7
 library(dplyr)
 library(tidyr)
-load.project()
+library(ggplot2)
+
 
 #select only relevant video duration and 100% view columns in runs 3,4,5 and 7
 seven_videos_100= select(cyber.security.7_video.stats, video_duration, viewed_onehundred_percent)
 five_videos_100= select(cyber.security.5_video.stats, video_duration, viewed_onehundred_percent)
 four_videos_100= select(cyber.security.4_video.stats, video_duration, viewed_onehundred_percent)
 three_videos_100= select(cyber.security.3_video.stats, video_duration, viewed_onehundred_percent)
+data_list_100= list(seven_videos_100, five_videos_100, four_videos_100, three_videos_100)
 
 #make list fof stats for all runs
 data_list_100= list(seven_videos_100, five_videos_100, four_videos_100, three_videos_100)
@@ -236,6 +238,3 @@ mean(transcripts[10:13])
 
 bp= bind_cols(view_percentages_total_duration)
 
-bp2= select(bp, video_duration...1, viewed_five_percent, viewed_ten_percent,
-            +                   viewed_twentyfive_percent, viewed_fifty_percent, viewed_seventyfive_percent, viewed_ninetyfive_percent, viewed_onehundred_percent)
-bp2%>%pivot_longer(!video_duration, names_to= "vid")
